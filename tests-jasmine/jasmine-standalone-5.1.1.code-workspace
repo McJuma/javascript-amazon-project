@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "jasmine-standalone-5.1.1",
+			"path": "../../../../Users/smark/Downloads/Compressed/jasmine-standalone-5.1.1"
+		},
+		{
+			"name": "javascript-amazon-project",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "javascript-amazon-project"
+	}
+}
