@@ -1,7 +1,7 @@
-import { cart } from "../../data/cart.js";
+import { cart } from "../data/cart.js";
 import { formatCurrency } from "../utils/money.js";
-import { getProduct } from "../../data/products.js";
-import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
+import { getProduct } from "../data/products.js";
+import { deliveryOptions, getDeliveryOption } from "../data/deliveryOptions.js";
 
 
 

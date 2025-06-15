@@ -1,18 +1,21 @@
 import { addToCart, cart, loadFromStorage } from "../../scripts/data/cart.js";
 
 describe("test suite: addToCart", () => {
+    beforeEach(() => {
+        // Clear the cart array and reset spies before each test
+        cart.length = 0;
+        spyOn(localStorage, "setItem").and.callThrough();
+        spyOn(localStorage, "getItem").and.returnValue(null);
+    });
+
     it("adds an existing product to cart", () => {
-        spyOn(localStorage, "setItem");
-
-
-        spyOn(localStorage, "getItem").and.callFake(() => {
+        localStorage.getItem.and.callFake(() => {
             return JSON.stringify([{
                 productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
                 quantity: 1,
                 deliveryOptionId: '1'
             }]);
         });
-        console.log(localStorage.getItem("cart"));
         loadFromStorage();
 
         addToCart("e43638ce-6aa0-4b85-b27f-e1d07eb678c6");
@@ -29,5 +32,4 @@ describe("test suite: addToCart", () => {
         expect(cart[0].quantity).toEqual(1);
     });
 });
-console.log(cart.length);
 
