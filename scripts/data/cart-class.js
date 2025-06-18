@@ -1,16 +1,16 @@
 class Cart {
     // class is an object generator
     cartItems;
-    localStorageKey;
+    #localStorageKey; // private property
 
     constructor(localStorageKey) {
-        this.localStorageKey = localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
 
-    loadFromStorage() {
-        this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));
+    #loadFromStorage() {
+        this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));
         if (!this.cartItems) {
             this.cartItems =  [
             {
@@ -27,7 +27,7 @@ class Cart {
     }
     
     saveToLocalStorage() {
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
     }
     /* same as saveToLocalStorage: function() {
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -82,6 +82,7 @@ class Cart {
 
 const cart = new Cart('cart-oop');
 const businessCart = new Cart('cart-business');
+
 
 
 
