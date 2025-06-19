@@ -40,7 +40,7 @@ export function renderOrderSummary() {
                     ${matchingProduct.itemName}
                   </div>
                   <div class="product-price">
-                    $${formatCurrency(matchingProduct.priceInCents)}
+                    ${matchingProduct.getPrice()}
                   </div>
                   <div class="product-quantity js-product-quantity-${matchingProduct.id}">
                     <span>

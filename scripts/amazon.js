@@ -1,4 +1,4 @@
-import { cart, addToCart } from "./data/cart.js";
+import { Cart } from "./data/cart-class.js";
 import { products } from "./data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
@@ -18,7 +18,7 @@ products.forEach((product, index) => {
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars * 10}.png" alt="Product Rating">
+              src="${product.getStarUrl()}" alt="Product Rating">
             <div class="product-rating-count link-primary">
               ${product.rating.count} Rating
 
@@ -26,7 +26,7 @@ products.forEach((product, index) => {
           </div>
 
           <div class="product-price">
-            $${formatCurrency(product.priceInCents)} USD
+            ${product.getPrice()}
           </div>
 
           <div class="product-quantity-container">

@@ -1,4 +1,4 @@
-class Cart {
+export class Cart {
     // class is an object generator
     cartItems;
     #localStorageKey; // private property
