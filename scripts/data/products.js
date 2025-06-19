@@ -33,6 +33,27 @@ class Product {
   productName;
   rating;
   priceInCents;
+  extraInfoHtml() {
+    return '';
+  }
+}
+
+// inheritance
+class Clothing extends Product {
+  sizeChartLink;
+
+  constructor(productDetails) {
+    super(productDetails); // constructor of parent class
+    this.sizeChartLink = productDetails.sizeChartLink;
+    
+  }
+
+  extraInfoHtml() {
+    // super.extraInfoHtml();
+    return `
+      <a href="${this.sizeChartLink}" target="_blank" class="product-size-chart-link">Size Chart</a
+    `;
+  }
 }
 
 export const products = [
@@ -709,5 +730,8 @@ export const products = [
     ]
   }
 ].map((productDetails) => {
+  if (productDetails.type === "clothing") {
+    return new Clothing(productDetails);
+  }
   return new Product(productDetails);
 });
